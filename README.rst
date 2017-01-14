@@ -1,11 +1,17 @@
 Computing Fundamentals in C++ |Build Status|
 ==============================================================================================================================================================================================
 
-Requirements for project:
-1. Works with ReSharper (limits project to either CMake or VSCS but VS2017 ReSharper and CMake support is very poor right now)
-2. Is compatible with a Visual Studio build service (limits test framework to VSTest since the only (free) option is Team Services)
+Why I am using Visual Studio:
 
-Therefore, this project is created with Visual Studio, integration tested on Team Services, and uses the VSTest framework. A very Microsoft project.
+ - It works with ReSharper and I just bought a license for myself
+
+Why I am using Team Services
+
+ - Because it is the only (free) VS build service that I know of
+ 
+Why I am using VSTest
+
+ - Because it is the only testing framework Team Services supports
 
 .. |Build Status| image:: https://ianrobrien.visualstudio.com/_apis/public/build/definitions/d368039e-e55d-4816-a9db-80c2b9b4be45/1/badge
    :target: https://ianrobrien.visualstudio.com/computing-fundamentals-cpp/_build/
