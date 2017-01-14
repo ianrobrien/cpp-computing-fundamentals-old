@@ -5,11 +5,11 @@ Why I am using Visual Studio:
 
 - It works with ReSharper and I just bought a license for myself
 
-Why I am using Team Services
+Why I am using Team Services:
 
 - Because it is the only (free) VS build service that I know of
  
-Why I am using VSTest
+Why I am using VSTest:
 
 - Because it is the only testing framework Team Services supports
 
