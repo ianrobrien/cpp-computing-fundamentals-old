@@ -1,5 +1,5 @@
 // stdafx.cpp : source file that includes just the standard includes
-// computing-test.pch will be the pre-compiled header
+// computing-fundamentals-test.pch will be the pre-compiled header
 // stdafx.obj will contain the pre-compiled type information
 
 #include "stdafx.h"
