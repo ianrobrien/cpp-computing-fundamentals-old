@@ -34,9 +34,10 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif()
 
-set(SOURCE_FILES src/list_node.h src/linked_list.h tests/list_node_tests.cpp)
+set(SOURCE_FILES src/list_node.h src/linked_list.h tests/list_node_tests.cpp tests/linked_list_tests.cpp)
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(computing_fundamentals ${SOURCE_FILES})
 target_link_libraries(computing_fundamentals gtest_main)
-add_test(NAME ListNodeTest COMMAND computing_fundamentals)
+add_test(NAME ListNodeTests COMMAND computing_fundamentals)
+add_test(NAME LinkedListTests COMMAND computing_fundamentals)
