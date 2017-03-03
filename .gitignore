@@ -33,6 +33,7 @@
 
 # CMake stuff
 cmake-build-debug
+CMakeCache.txt
 MakeCache.txt
 CMakeFiles
 CMakeScripts
@@ -44,3 +45,6 @@ compile_commands.json
 CTestTestfile.cmake
 
 build
+googletest-build
+googltest-download
+googletest-src
