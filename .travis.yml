@@ -22,5 +22,6 @@ before_script:
   - (mkdir build && cd build && cmake ..)
 
 script:
-  make
-  ./computing_fundamentals
+  - |
+    make
+    ./computing_fundamentals
