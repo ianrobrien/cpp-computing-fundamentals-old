@@ -22,6 +22,5 @@ before_script:
   - (mkdir build && cd build && cmake ..)
 
 script:
-  - |
-    make
-    ./computing_fundamentals
+  - cd ${TRAVIS_BUILD_DIR}
+  - (cd build && make && ./computing_fundamentals)
