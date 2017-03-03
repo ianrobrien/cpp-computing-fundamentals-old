@@ -46,5 +46,7 @@ CTestTestfile.cmake
 
 build
 googletest-build
-googltest-download
+googletest-download
 googletest-src
+
+.idea/workspace.xml
