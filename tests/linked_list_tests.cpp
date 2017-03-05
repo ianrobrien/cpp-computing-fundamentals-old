@@ -7,9 +7,9 @@
 
 TEST(LinkedListTest, AddAndCountSize) {
     LinkedList<int> linkedList;
-    ASSERT_EQ(linkedList.Size(), 0);
+    ASSERT_EQ(linkedList.size(), 0);
     linkedList.Add(new int32_t(2));
-    ASSERT_EQ(linkedList.Size(), 1);
+    ASSERT_EQ(linkedList.size(), 1);
 }
 
 

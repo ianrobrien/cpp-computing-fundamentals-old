@@ -13,11 +13,11 @@ private:
 public:
     ListNode<T>(T *data);
 
-    ListNode<T> *GetNext();
+    ListNode<T> *next();
 
-    void SetNext(ListNode<T> *next);
+    void setNext(ListNode<T> *next);
 
-    T *GetData();
+    T *data();
 
 };
 
@@ -28,17 +28,17 @@ ListNode<T>::ListNode(T *data) {
 }
 
 template<class T>
-void ListNode<T>::SetNext(ListNode<T> *next) {
+void ListNode<T>::setNext(ListNode<T> *next) {
     this->next_ = next;
 }
 
 template<class T>
-ListNode<T> *ListNode<T>::GetNext() {
+ListNode<T> *ListNode<T>::next() {
     return this->next_;
 }
 
 template<class T>
-T *ListNode<T>::GetData() {
+T *ListNode<T>::data() {
     return this->data_;
 }
 

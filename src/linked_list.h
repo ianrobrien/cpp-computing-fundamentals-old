@@ -21,7 +21,7 @@ public:
 
     T Get(int index);
 
-    int Size() const;
+    int size() const;
 };
 
 template<class T>
@@ -37,10 +37,10 @@ void LinkedList<T>::Add(T *data) {
         this->head_ = inserting;
     } else {
         ListNode<T> *current = this->head_;
-        while (current->GetNext()) {
-            current = current->GetNext();
+        while (current->next()) {
+            current = current->next();
         }
-        current->SetNext(inserting);
+        current->setNext(inserting);
     }
     size_++;
 }
@@ -54,13 +54,13 @@ template<class T>
 T LinkedList<T>::Get(int index) {
     ListNode<T> *node = this->head_;
     for (int i = 0; i < index; index++) {
-        node = node->GetNext();
+        node = node->next();
     }
     return node;
 }
 
 template<class T>
-int LinkedList<T>::Size() const {
+int LinkedList<T>::size() const {
     return this->size_;
 }
 

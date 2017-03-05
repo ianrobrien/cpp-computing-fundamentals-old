@@ -12,11 +12,18 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration CONFIG_NAME="Debug" />
+      <configuration CONFIG_NAME="Debug" GENERATION_DIR="." />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c73257fe-684b-47b7-95ae-6162d4437544" name="Default" comment="" />
+    <list default="true" id="c73257fe-684b-47b7-95ae-6162d4437544" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/linked_list.h" afterPath="$PROJECT_DIR$/src/linked_list.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/list_node.h" afterPath="$PROJECT_DIR$/src/list_node.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/linked_list_tests.cpp" afterPath="$PROJECT_DIR$/tests/linked_list_tests.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/list_node_tests.cpp" afterPath="$PROJECT_DIR$/tests/list_node_tests.cpp" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,97 +45,31 @@
       <file leaf-file-name="list_node.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/list_node.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="541">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="e#139#148#0" expanded="true" />
-                <element signature="e#346#355#0" expanded="true" />
-                <element signature="e#451#460#0" expanded="true" />
-                <element signature="e#543#552#0" expanded="true" />
-                <element signature="e#626#635#0" expanded="true" />
+                <element signature="e#340#349#0" expanded="true" />
+                <element signature="e#445#454#0" expanded="true" />
+                <element signature="e#537#546#0" expanded="true" />
+                <element signature="e#617#626#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="linked_list.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="linked_list.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/linked_list.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
               <folding>
                 <element signature="e#167#176#0" expanded="true" />
                 <element signature="e#381#390#0" expanded="true" />
                 <element signature="e#480#489#0" expanded="true" />
-                <element signature="e#847#856#0" expanded="true" />
-                <element signature="e#922#931#0" expanded="true" />
-                <element signature="e#1111#1120#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt.in" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt.in">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list_node_tests.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/list_node_tests.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-              <folding>
-                <element signature="e#44#73#0" expanded="true" />
-                <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="linked_list_tests.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/linked_list_tests.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-              <folding>
-                <element signature="e#44#75#0" expanded="true" />
-                <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
+                <element signature="e#841#850#0" expanded="true" />
+                <element signature="e#916#925#0" expanded="true" />
+                <element signature="e#1102#1111#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,13 +97,13 @@
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt.in" />
         <option value="$PROJECT_DIR$/tests/list_node_tests.h" />
-        <option value="$PROJECT_DIR$/src/list_node.h" />
         <option value="$PROJECT_DIR$/tests/list_node_tests.cpp" />
-        <option value="$PROJECT_DIR$/src/linked_list.h" />
         <option value="$PROJECT_DIR$/tests/linked_list_tests.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/src/linked_list.h" />
+        <option value="$PROJECT_DIR$/src/list_node.h" />
       </list>
     </option>
   </component>
@@ -241,7 +182,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -481,6 +422,7 @@
       <workItem from="1488340574950" duration="5465000" />
       <workItem from="1488584861346" duration="237000" />
       <workItem from="1488587048209" duration="149000" />
+      <workItem from="1488687558511" duration="291000" />
     </task>
     <servers />
   </component>
@@ -517,7 +459,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5861000" />
+    <option name="totallyTimeSpent" value="6658000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -565,16 +507,70 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/list_node_tests.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="e#44#73#0" expanded="true" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/linked_list_tests.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#44#75#0" expanded="true" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/list_node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="e#139#148#0" expanded="true" />
-            <element signature="e#346#355#0" expanded="true" />
-            <element signature="e#451#460#0" expanded="true" />
-            <element signature="e#543#552#0" expanded="true" />
-            <element signature="e#626#635#0" expanded="true" />
+            <element signature="e#340#349#0" expanded="true" />
+            <element signature="e#445#454#0" expanded="true" />
+            <element signature="e#537#546#0" expanded="true" />
+            <element signature="e#617#626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -587,9 +583,9 @@
             <element signature="e#167#176#0" expanded="true" />
             <element signature="e#381#390#0" expanded="true" />
             <element signature="e#480#489#0" expanded="true" />
-            <element signature="e#847#856#0" expanded="true" />
-            <element signature="e#922#931#0" expanded="true" />
-            <element signature="e#1111#1120#0" expanded="true" />
+            <element signature="e#841#850#0" expanded="true" />
+            <element signature="e#916#925#0" expanded="true" />
+            <element signature="e#1102#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -624,7 +620,7 @@
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#44#73#0" expanded="true" />
-            <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -635,7 +631,7 @@
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding>
             <element signature="e#44#75#0" expanded="true" />
-            <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -646,10 +642,10 @@
           <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="e#139#148#0" expanded="true" />
-            <element signature="e#346#355#0" expanded="true" />
-            <element signature="e#451#460#0" expanded="true" />
-            <element signature="e#543#552#0" expanded="true" />
-            <element signature="e#626#635#0" expanded="true" />
+            <element signature="e#340#349#0" expanded="true" />
+            <element signature="e#445#454#0" expanded="true" />
+            <element signature="e#537#546#0" expanded="true" />
+            <element signature="e#617#626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -662,9 +658,9 @@
             <element signature="e#167#176#0" expanded="true" />
             <element signature="e#381#390#0" expanded="true" />
             <element signature="e#480#489#0" expanded="true" />
-            <element signature="e#847#856#0" expanded="true" />
-            <element signature="e#922#931#0" expanded="true" />
-            <element signature="e#1111#1120#0" expanded="true" />
+            <element signature="e#841#850#0" expanded="true" />
+            <element signature="e#916#925#0" expanded="true" />
+            <element signature="e#1102#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -683,7 +679,7 @@
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#44#73#0" expanded="true" />
-            <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -694,7 +690,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#44#75#0" expanded="true" />
-            <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -707,10 +703,10 @@
           <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="e#139#148#0" expanded="true" />
-            <element signature="e#346#355#0" expanded="true" />
-            <element signature="e#451#460#0" expanded="true" />
-            <element signature="e#543#552#0" expanded="true" />
-            <element signature="e#626#635#0" expanded="true" />
+            <element signature="e#340#349#0" expanded="true" />
+            <element signature="e#445#454#0" expanded="true" />
+            <element signature="e#537#546#0" expanded="true" />
+            <element signature="e#617#626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -723,9 +719,9 @@
             <element signature="e#167#176#0" expanded="true" />
             <element signature="e#381#390#0" expanded="true" />
             <element signature="e#480#489#0" expanded="true" />
-            <element signature="e#847#856#0" expanded="true" />
-            <element signature="e#922#931#0" expanded="true" />
-            <element signature="e#1111#1120#0" expanded="true" />
+            <element signature="e#841#850#0" expanded="true" />
+            <element signature="e#916#925#0" expanded="true" />
+            <element signature="e#1102#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -736,7 +732,7 @@
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#44#73#0" expanded="true" />
-            <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -747,7 +743,7 @@
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding>
             <element signature="e#44#75#0" expanded="true" />
-            <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -776,14 +772,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travis.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/travis.sh" />
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -798,10 +787,10 @@
           <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="e#139#148#0" expanded="true" />
-            <element signature="e#346#355#0" expanded="true" />
-            <element signature="e#451#460#0" expanded="true" />
-            <element signature="e#543#552#0" expanded="true" />
-            <element signature="e#626#635#0" expanded="true" />
+            <element signature="e#340#349#0" expanded="true" />
+            <element signature="e#445#454#0" expanded="true" />
+            <element signature="e#537#546#0" expanded="true" />
+            <element signature="e#617#626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -814,9 +803,9 @@
             <element signature="e#167#176#0" expanded="true" />
             <element signature="e#381#390#0" expanded="true" />
             <element signature="e#480#489#0" expanded="true" />
-            <element signature="e#847#856#0" expanded="true" />
-            <element signature="e#922#931#0" expanded="true" />
-            <element signature="e#1111#1120#0" expanded="true" />
+            <element signature="e#841#850#0" expanded="true" />
+            <element signature="e#916#925#0" expanded="true" />
+            <element signature="e#1102#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -851,7 +840,7 @@
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#44#73#0" expanded="true" />
-            <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -862,7 +851,7 @@
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding>
             <element signature="e#44#75#0" expanded="true" />
-            <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -873,10 +862,10 @@
           <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="e#139#148#0" expanded="true" />
-            <element signature="e#346#355#0" expanded="true" />
-            <element signature="e#451#460#0" expanded="true" />
-            <element signature="e#543#552#0" expanded="true" />
-            <element signature="e#626#635#0" expanded="true" />
+            <element signature="e#340#349#0" expanded="true" />
+            <element signature="e#445#454#0" expanded="true" />
+            <element signature="e#537#546#0" expanded="true" />
+            <element signature="e#617#626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -889,9 +878,9 @@
             <element signature="e#167#176#0" expanded="true" />
             <element signature="e#381#390#0" expanded="true" />
             <element signature="e#480#489#0" expanded="true" />
-            <element signature="e#847#856#0" expanded="true" />
-            <element signature="e#922#931#0" expanded="true" />
-            <element signature="e#1111#1120#0" expanded="true" />
+            <element signature="e#841#850#0" expanded="true" />
+            <element signature="e#916#925#0" expanded="true" />
+            <element signature="e#1102#1111#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -910,7 +899,7 @@
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#44#73#0" expanded="true" />
-            <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -921,68 +910,25 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#44#75#0" expanded="true" />
-            <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/list_node_tests.h" />
     <entry file="file://$PROJECT_DIR$/main.cpp" />
-    <entry file="file://$PROJECT_DIR$/src/list_node.h">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#139#148#0" expanded="true" />
-            <element signature="e#346#355#0" expanded="true" />
-            <element signature="e#451#460#0" expanded="true" />
-            <element signature="e#543#552#0" expanded="true" />
-            <element signature="e#626#635#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="448">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/linked_list.h">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="e#167#176#0" expanded="true" />
-            <element signature="e#381#390#0" expanded="true" />
-            <element signature="e#480#489#0" expanded="true" />
-            <element signature="e#847#856#0" expanded="true" />
-            <element signature="e#922#931#0" expanded="true" />
-            <element signature="e#1111#1120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/list_node_tests.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#44#73#0" expanded="true" />
-            <marker date="1488342517737" expanded="true" signature="139:303" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/linked_list_tests.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <element signature="e#44#75#0" expanded="true" />
-            <marker date="1488347592806" expanded="true" signature="140:285" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+        <state relative-caret-position="326">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -995,19 +941,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/tests/list_node_tests.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="e#44#73#0" expanded="true" />
+            <marker date="1488687746925" expanded="true" signature="139:300" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/linked_list_tests.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#44#75#0" expanded="true" />
+            <marker date="1488687738345" expanded="true" signature="140:285" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/list_node.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#139#148#0" expanded="true" />
+            <element signature="e#340#349#0" expanded="true" />
+            <element signature="e#445#454#0" expanded="true" />
+            <element signature="e#537#546#0" expanded="true" />
+            <element signature="e#617#626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linked_list.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="e#167#176#0" expanded="true" />
+            <element signature="e#381#390#0" expanded="true" />
+            <element signature="e#480#489#0" expanded="true" />
+            <element signature="e#841#850#0" expanded="true" />
+            <element signature="e#916#925#0" expanded="true" />
+            <element signature="e#1102#1111#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

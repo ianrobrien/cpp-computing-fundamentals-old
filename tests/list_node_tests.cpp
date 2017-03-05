@@ -8,6 +8,6 @@
 TEST(ListNodeTest, DefaultConstructor) {
     int *test_value = nullptr;
     ListNode<int> *listNode = new ListNode<int>(test_value);
-    ASSERT_EQ(listNode->GetData(), test_value);
+    ASSERT_EQ(listNode->data(), test_value);
     delete listNode;
 }
