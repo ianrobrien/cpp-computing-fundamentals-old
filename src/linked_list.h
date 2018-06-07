@@ -14,16 +14,18 @@ private:
     int size_;
 public:
     LinkedList<T>();
-
-    bool IsEmpty();
-
-    void Add(T *data);
-
-    void Remove(T data);
-
-    T Get(int index);
-
     int size() const;
+    bool Contains(T element);
+    T Get(int index);
+    int IndexOf(T element);
+    bool IsEmpty();
+    int LastIndexOf(T element);
+    bool Add(T *element);
+    bool Add(int index, T *element);
+    void Clear();
+    bool Remove(T element);
+    bool RemoveAt(int index, T element);
+    T Set(int index, T element);    
 };
 
 template<class T>
@@ -33,13 +35,47 @@ LinkedList<T>::LinkedList() {
 }
 
 template<class T>
+int LinkedList<T>::size() const {
+    return this->size_;
+}
+
+template<class T>
+T LinkedList<T>::Get(int index) {
+    ListNode<T> *node = this->head_;
+    for (int i = 0; i < index; index++) {
+        node = node->next();
+    }
+    return node;
+}
+
+template<class T>
+bool LinkedList<T>::Contains(T element) {
+    return true;
+};
+
+template<class T>
+int LinkedList<T>::IndexOf(T element) {
+    return -1;
+};
+
+template<class T>
 bool LinkedList<T>::IsEmpty() {
     return this->size_ == 0;
 }
 
 template<class T>
-void LinkedList<T>::Add(T *data) {
-    ListNode<T> *inserting = new ListNode<T>(data);
+int LinkedList<T>::LastIndexOf(T element) {
+    return -1;
+};
+
+template<class T>
+bool LinkedList<T>::Add(T *element) {
+    this->Add(this->size_, element);
+}
+
+template<class T>
+bool LinkedList<T>::Add(int index, T *element) {
+    ListNode<T> *inserting = new ListNode<T>(element);
     if (!this->head_) {
         this->head_ = inserting;
     } else {
@@ -53,22 +89,17 @@ void LinkedList<T>::Add(T *data) {
 }
 
 template<class T>
-void LinkedList<T>::Remove(T data) {
-    // walk list
+void LinkedList<T>::Clear() {
 }
 
 template<class T>
-T LinkedList<T>::Get(int index) {
-    ListNode<T> *node = this->head_;
-    for (int i = 0; i < index; index++) {
-        node = node->next();
-    }
-    return node;
+bool LinkedList<T>::Remove(T element) {
+    return false;
 }
 
 template<class T>
-int LinkedList<T>::size() const {
-    return this->size_;
+bool LinkedList<T>::RemoveAt(int index, T element) {
+    return false;
 }
 
 #endif //COMPUTING_FUNDAMENTALS_LINKED_LIST_H
