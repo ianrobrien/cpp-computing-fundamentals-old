@@ -1,43 +1,68 @@
-cmake_minimum_required(VERSION 3.5.1)
-project(computing_fundamentals)
+## Project Properties
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(computing-fundamentals-cpp)
+SET(APPLICATION_NAME "Computing Fundamentals in C++")
+SET(APPLICATION_CODENAME "${PROJECT_NAME}")
+SET(APPLICATION_COPYRIGHT_YEARS "2018")
+SET(APPLICATION_VERSION_MAJOR 1)
+SET(APPLICATION_VERSION_MINOR 0)
+SET(APPLICATION_VERSION_PATCH 0)
+SET(APPLICATION_VERSION_TYPE SNAPSHOT)
+SET(APPLICATION_VERSION_STRING "${APPLICATION_VERSION_MAJOR}.${APPLICATION_VERSION_MINOR}.${APPLICATION_VERSION_PATCH}-${APPLICATION_VERSION_TYPE}")
+SET(APPLICATION_VENDOR_ID "com.ianrobrien")
+SET(APPLICATION_VENDOR_NAME "Ian R. O'Brien")
+SET(APPLICATION_VENDOR_URL "ianrobrien.com")
+SET(APPLICATION_ID "${APPLICATION_VENDOR_ID}.${PROJECT_NAME}")
 
-set(CMAKE_CXX_STANDARD 11)
+## Project Output Paths
+SET(MAINFOLDER ${PROJECT_SOURCE_DIR})
+SET(EXECUTABLE_OUTPUT_PATH "${MAINFOLDER}/bin")
+SET(LIBRARY_OUTPUT_PATH "${MAINFOLDER}/lib")
 
-# Download and unpack googletest at configure time
-configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
-execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
-        RESULT_VARIABLE result
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download )
-if(result)
-    message(FATAL_ERROR "CMake step for googletest failed: ${result}")
-endif()
-execute_process(COMMAND ${CMAKE_COMMAND} --build .
-        RESULT_VARIABLE result
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download )
-if(result)
-    message(FATAL_ERROR "Build step for googletest failed: ${result}")
-endif()
+## Project Search Paths
+LIST(APPEND CMAKE_PREFIX_PATH "${MAINFOLDER}")
+LIST(APPEND CMAKE_PREFIX_PATH "${MAINFOLDER}/tools")
+LIST(APPEND CMAKE_PREFIX_PATH "${MAINFOLDER}/thirdparty")
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${MAINFOLDER}/tools/share/cmake")
+INCLUDE_DIRECTORIES("${MAINFOLDER}/include")
 
-# Prevent overriding the parent project's compiler/linker
-# settings on Windows
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+## Use 0 for debugging, 1 for release
+SET(CMAKE_VERBOSE_MAKEFILE 0)
 
-# Add googletest directly to our build. This defines
-# the gtest and gtest_main targets.
-add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
-        ${CMAKE_BINARY_DIR}/googletest-build)
+## Add Code Coverage Target for Supported Compilers
+IF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
+   "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+	INCLUDE(CodeCoverage)
+ENDIF()
 
-# The gtest/gtest_main targets carry header search path
-# dependencies automatically when using CMake 2.8.11 or
-# later. Otherwise we have to add them here ourselves.
-if (CMAKE_VERSION VERSION_LESS 2.8.11)
-    include_directories("${gtest_SOURCE_DIR}/include")
-endif()
+## Project Dependencies
+FIND_PACKAGE(Boost 1.46 COMPONENTS "program_options" REQUIRED)
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
-set(SOURCE_FILES src/list_node.h src/linked_list.h tests/list_node_tests.cpp tests/linked_list_tests.cpp)
+## Project Sources
+FILE(GLOB_RECURSE PROJECT_SRCS ${MAINFOLDER}/src/*.cpp ${MAINFOLDER}/src/*.h)
+FILE(GLOB_RECURSE TEST_SRCS ${MAINFOLDER}/test/*.cpp ${MAINFOLDER}/test/*.h)
 
-# Now simply link against gtest or gtest_main as needed. Eg
-add_executable(computing_fundamentals ${SOURCE_FILES})
-target_link_libraries(computing_fundamentals gtest_main)
-add_test(NAME ListNodeTests COMMAND computing_fundamentals)
-add_test(NAME LinkedListTests COMMAND computing_fundamentals)
+## Configure Files
+FILE(GLOB_RECURSE CONFIGINPUTS1 include/*.h.in.cmake)
+FILE(GLOB_RECURSE CONFIGINPUTS2 src/*.h.in.cmake)
+LIST(APPEND CONFIGINPUTS "${CONFIGINPUTS1}")
+LIST(APPEND CONFIGINPUTS "${CONFIGINPUTS2}")
+FOREACH(CONFIGINPUT ${CONFIGINPUTS})
+    STRING(REPLACE ".h.in.cmake" ".h" CONFIGOUTPUT1 "${CONFIGINPUT}")
+    CONFIGURE_FILE("${CONFIGINPUT}" "${CONFIGOUTPUT1}")
+ENDFOREACH(CONFIGINPUT ${CONFIGINPUTS})
+
+## Add Build Targets
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(thirdparty)
+ADD_SUBDIRECTORY(test)
+
+## Add Install Targets
+IF(EXISTS "${MAINFOLDER}/include/${PROJECT_NAME}" AND IS_DIRECTORY "${MAINFOLDER}/include/${PROJECT_NAME}")
+    INSTALL(DIRECTORY "${MAINFOLDER}/include/${PROJECT_NAME}" DESTINATION "include")
+ENDIF(EXISTS "${MAINFOLDER}/include/${PROJECT_NAME}" AND IS_DIRECTORY "${MAINFOLDER}/include/${PROJECT_NAME}")
+
+## Add Documentation Targets
+INCLUDE(DocumentationTargets)
