@@ -16,13 +16,11 @@ cmake-build:
   - make
   artifacts:
     paths:
-    - build/computing_fundamentals
     - bin/*
-    - test/*
 
 gtest-test:
   stage: test
   dependencies:
     - cmake-build
   script:
-  - ./build/computing_fundamentals
+  - ./bin/computing-fundamentals-cpp-unittests
