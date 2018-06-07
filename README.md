@@ -1,1 +1,2 @@
-[![Build Status](https://travis-ci.org/ianrobrien/computing-fundamentals-cpp.svg?branch=master)](https://travis-ci.org/ianrobrien/computing-fundamentals-cpp)
+[![pipeline status](https://gitlab.com/ianrobrien/computing-fundamentals-cpp/badges/master/pipeline.svg)](https://gitlab.com/ianrobrien/computing-fundamentals-cpp/commits/master)
+[![coverage report](https://gitlab.com/ianrobrien/computing-fundamentals-cpp/badges/master/coverage.svg)](https://gitlab.com/ianrobrien/computing-fundamentals-cpp/commits/master)
