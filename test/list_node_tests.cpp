@@ -2,7 +2,7 @@
 // Created by ianrobrien on 2/28/17.
 //
 
-#include "../src/list_node.h"
+#include "src/list_node.h"
 #include "gtest/gtest.h"
 
 TEST(ListNodeTest, DefaultConstructor) {

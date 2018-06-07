@@ -1,8 +1,8 @@
 #include <string.h>
 #include "gtest/gtest.h"
 
-#include "../src/appinfo.h"
-#include "../src/app.h"
+#include "src/appinfo.h"
+#include "src/app.h"
 
 /* to use a test fixture, we derive from testing::Test */
 class AppTest : public testing::Test {
