@@ -39,7 +39,6 @@ pages:
   dependencies:
     - cmake-build
   script:
-    - 
     - mv docs/html/ public/
   artifacts:
     paths:
