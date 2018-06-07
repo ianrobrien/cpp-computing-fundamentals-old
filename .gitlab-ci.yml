@@ -37,7 +37,7 @@ gtest-test:
 pages:
   stage: deploy
   dependencies:
-    - gtest-test
+    - cmake-build
   script:
     - mv docs/html/ public/
   artifacts:
