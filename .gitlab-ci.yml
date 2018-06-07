@@ -1,11 +1,12 @@
 image: gcc
 
 before_script:  
-  - apt-get update && apt-get -y install cmake build-essential cmake git-core lcov ggcov libboost-all-dev
+  - apt-get update && apt-get -y install cmake build-essential cmake git-core lcov ggcov libboost-all-dev doxygen
 
 stages:
   - build
   - test
+  - deploy
 
 cmake-build:
   stage: build
@@ -17,6 +18,14 @@ cmake-build:
   artifacts:
     paths:
     - bin/*
+  
+doxygen-generate:
+    stage: build
+    script:
+    - doxygen
+    artifacts:
+      paths:
+      - docs/html/*
 
 gtest-test:
   stage: test
@@ -24,3 +33,16 @@ gtest-test:
     - cmake-build
   script:
   - ./bin/computing-fundamentals-cpp-unittests
+
+pages:
+  stage: deploy
+  dependencies:
+    - cmake-build
+  script:
+    - 
+    - mv docs/html/ public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
