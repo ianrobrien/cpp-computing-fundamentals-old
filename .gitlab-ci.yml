@@ -17,7 +17,7 @@ cmake-build:
   - make
   artifacts:
     paths:
-    - cmake/computing-fundamentals-cpp
+    - build/computing-fundamentals-cpp
     - bin/*
     - test/*
 
@@ -26,4 +26,4 @@ gtest-test:
   dependencies:
     - cmake-build
   script:
-  - ./cmake/computing_fundamentals
+  - ./build/computing_fundamentals
