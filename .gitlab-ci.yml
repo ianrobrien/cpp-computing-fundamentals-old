@@ -19,20 +19,24 @@ cmake-build:
     paths:
     - bin/*
 
+doxygen-generate:
+  stage: build
+  script:
+  - doxygen
+  artifacts:
+    paths:
+    - docs/html/*
+
 gtest-test:
   stage: test
   dependencies:
     - cmake-build
   script:
   - ./bin/computing-fundamentals-cpp-unittests
-
-doxygen-generate:
-  stage: deploy
-  script:
-  - doxygen
   artifacts:
     paths:
     - docs/html/*
+
 
 pages:
   stage: deploy
