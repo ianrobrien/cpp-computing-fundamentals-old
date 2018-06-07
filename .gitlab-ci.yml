@@ -1,10 +1,14 @@
+image: gcc
+
+before_script:  
+  - apt-get update && apt-get -y install cmake
+
 stages:
   - build
   - test
   - deploy
 
 cmake-build:
-  image: gcc
   stage: build
   script:
   - mkdir build
@@ -17,7 +21,6 @@ cmake-build:
      - test/*
 
 gtest-test:
-  image: gcc
   stage: test
   dependencies:
     - cmake-build
