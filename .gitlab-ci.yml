@@ -17,7 +17,7 @@ cmake-build:
   - make
   artifacts:
     paths:
-    - build/computing-fundamentals-cpp
+    - build/computing_fundamentals
     - bin/*
     - test/*
 
