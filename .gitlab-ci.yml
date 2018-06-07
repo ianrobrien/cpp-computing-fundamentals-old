@@ -20,12 +20,12 @@ cmake-build:
     - bin/*
   
 doxygen-generate:
-    stage: build
-    script:
-    - doxygen
-    artifacts:
-      paths:
-      - docs/html/*
+  stage: build
+  script:
+  - doxygen
+  artifacts:
+    paths:
+    - docs/html/*
 
 gtest-test:
   stage: test
