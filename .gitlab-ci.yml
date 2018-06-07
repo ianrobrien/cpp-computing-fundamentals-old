@@ -14,20 +14,16 @@ cmake-build:
   - mkdir build
   - cd build
   - cmake ../.
-  - make  
+  - make
   artifacts:
     paths:
-     - bin/*
-     - test/*
+    - cmake/computing-fundamentals-cpp
+    - bin/*
+    - test/*
 
 gtest-test:
   stage: test
   dependencies:
     - cmake-build
-#   coverage: '/coverage line-rate.*?([0-9]{1,3})%/'
   script:
-  - ./computing_fundamentals
-#   - mvn cobertura:dump-datafile -B
-#   artifacts:
-#     paths:
-#     - target/site/cobertura/*
+  - ./cmake/computing_fundamentals
