@@ -18,14 +18,6 @@ cmake-build:
   artifacts:
     paths:
     - bin/*
-  
-doxygen-generate:
-  stage: build
-  script:
-  - doxygen
-  artifacts:
-    paths:
-    - docs/html/*
 
 gtest-test:
   stage: test
@@ -34,10 +26,18 @@ gtest-test:
   script:
   - ./bin/computing-fundamentals-cpp-unittests
 
+doxygen-generate:
+  stage: deploy
+  script:
+  - doxygen
+  artifacts:
+    paths:
+    - docs/html/*
+
 pages:
   stage: deploy
   dependencies:
-    - cmake-build
+    - doxygen-generate
   script:
     - mv docs/html/ public/
   artifacts:
