@@ -15,6 +15,8 @@ private:
 public:
     LinkedList<T>();
 
+    bool IsEmpty();
+
     void Add(T *data);
 
     void Remove(T data);
@@ -28,6 +30,11 @@ template<class T>
 LinkedList<T>::LinkedList() {
     this->size_ = 0;
     this->head_ = nullptr;
+}
+
+template<class T>
+bool LinkedList<T>::IsEmpty() {
+    return this->size_ == 0;
 }
 
 template<class T>
