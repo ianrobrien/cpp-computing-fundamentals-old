@@ -1,7 +1,7 @@
-image: gcc
+image: ubuntu:bionic
 
 before_script:  
-  - apt-get update && apt-get -y install cmake
+  - apt-get update && apt-get -y install gcc cmake build-essential cmake git-core lcov ggcov libboost-all-dev doxygen
 
 stages:
   - build
@@ -13,17 +13,35 @@ cmake-build:
   script:
   - mkdir build
   - cd build
-  - cmake ../.
+  - cmake ..
   - make
   artifacts:
     paths:
-    - build/computing_fundamentals
     - bin/*
-    - test/*
+  
+doxygen-generate:
+  stage: build
+  script:
+  - doxygen
+  artifacts:
+    paths:
+    - docs/html/*
 
 gtest-test:
   stage: test
   dependencies:
     - cmake-build
   script:
-  - ./build/computing_fundamentals
+  - ./bin/computing-fundamentals-cpp-unittests
+
+pages:
+  stage: deploy
+  dependencies:
+    - cmake-build
+  script:
+    - mv docs/html/ public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

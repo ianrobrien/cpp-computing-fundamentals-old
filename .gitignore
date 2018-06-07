@@ -1,5 +1,14 @@
-# Prerequisites
-*.d
+# CMake generated files
+*appinfo.h
+bin/
+build/
+docs/
+
+# Vagrant
+.vagrant/
+
+# OS X trash
+.DS_Store
 
 # Compiled Object files
 *.slo
@@ -18,7 +27,6 @@
 
 # Fortran module files
 *.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
@@ -30,24 +38,3 @@
 *.exe
 *.out
 *.app
-
-# CMake stuff
-cmake-build-debug
-CMakeCache.txt
-MakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-*.cbp
-
-build
-googletest-build
-googletest-download
-googletest-src
-
-.idea/workspace.xml
