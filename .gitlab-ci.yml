@@ -28,12 +28,11 @@ doxygen-generate:
     - master
 
 gtest-test:
-  image: alpine:latest
+  image: ubuntu:bionic
   stage: test
   dependencies:
     - cmake-build
   script:
-  - ls ./bin/
   - ./bin/computing-fundamentals-cpp-unittests
 
 pages:
