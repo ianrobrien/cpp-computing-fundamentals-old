@@ -19,7 +19,7 @@ doxygen-generate:
   image: alpine:latest
   stage: build
   script:
-  - apt update && apt install -y doxygen graphviz
+  - apt-get update && apt-get install -y doxygen graphviz
   - doxygen
   artifacts:
     paths:
