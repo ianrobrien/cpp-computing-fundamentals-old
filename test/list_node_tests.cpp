@@ -2,12 +2,10 @@
 // Created by ianrobrien on 2/28/17.
 //
 
-#include "../src/list_node.h"
 #include "gtest/gtest.h"
+#include "src/list_node.h"
 
 TEST(ListNodeTest, DefaultConstructor) {
-    int *test_value = nullptr;
-    ListNode<int> *listNode = new ListNode<int>(test_value);
-    ASSERT_EQ(listNode->data(), test_value);
-    delete listNode;
+  auto listNode = ListNode<std::string>("testValue");
+  ASSERT_EQ(listNode.value(), "testValue");
 }

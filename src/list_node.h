@@ -5,41 +5,38 @@
 #ifndef COMPUTING_FUNDAMENTALS_LIST_NODE_H
 #define COMPUTING_FUNDAMENTALS_LIST_NODE_H
 
-template<class T>
+template <class T>
 class ListNode {
-private:
-    T *data_;
-    ListNode<T> *next_;
-public:
-    ListNode<T>(T *data);
+ private:
+  T value_;
+  ListNode<T> *next_;
 
-    ListNode<T> *next();
-
-    void setNext(ListNode<T> *next);
-
-    T *data();
-
+ public:
+  ListNode<T>(T value);
+  ListNode<T> *next();
+  void setNext(ListNode<T> *next);
+  T value();
 };
 
-template<class T>
-ListNode<T>::ListNode(T *data) {
-    this->data_ = data;
-    this->next_ = nullptr;
+template <class T>
+ListNode<T>::ListNode(T value) {
+  this->value_ = value;
+  this->next_ = nullptr;
 }
 
-template<class T>
+template <class T>
 void ListNode<T>::setNext(ListNode<T> *next) {
-    this->next_ = next;
+  this->next_ = next;
 }
 
-template<class T>
+template <class T>
 ListNode<T> *ListNode<T>::next() {
-    return this->next_;
+  return this->next_;
 }
 
-template<class T>
-T *ListNode<T>::data() {
-    return this->data_;
+template <class T>
+T ListNode<T>::value() {
+  return this->value_;
 }
 
-#endif //COMPUTING_FUNDAMENTALS_LIST_NODE_H
+#endif  // COMPUTING_FUNDAMENTALS_LIST_NODE_H
