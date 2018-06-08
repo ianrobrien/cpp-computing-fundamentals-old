@@ -33,7 +33,7 @@ gtest-test:
   dependencies:
     - cmake-build
   script:
-  - bin/computing-fundamentals-cpp-unittests
+  - ./bin/computing-fundamentals-cpp-unittests
 
 pages:
   image: alpine:latest
