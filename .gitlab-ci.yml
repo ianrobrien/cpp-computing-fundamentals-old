@@ -33,6 +33,7 @@ gtest-test:
   dependencies:
     - cmake-build
   script:
+  - ls ./bin/
   - ./bin/computing-fundamentals-cpp-unittests
 
 pages:
