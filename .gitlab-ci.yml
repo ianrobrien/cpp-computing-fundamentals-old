@@ -16,7 +16,7 @@ cmake-build:
     - bin/*
 
 doxygen-generate:
-  image: alpine:lastest
+  image: alpine:latest
   stage: build
   script:
   - apt update && apt install -y doxygen graphviz
@@ -28,7 +28,7 @@ doxygen-generate:
     - master
 
 gtest-test:
-  image: alpine:lastest
+  image: alpine:latest
   stage: test
   dependencies:
     - cmake-build
@@ -36,7 +36,7 @@ gtest-test:
   - ./bin/computing-fundamentals-cpp-unittests
 
 pages:
-  image: alpine:lastest
+  image: alpine:latest
   stage: deploy
   dependencies:
     - doxygen-generate
