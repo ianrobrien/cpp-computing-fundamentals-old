@@ -1,16 +1,13 @@
-image: ubuntu:bionic
-
-before_script:  
-  - apt-get update && apt-get -y install gcc cmake build-essential cmake git-core lcov ggcov libboost-all-dev doxygen graphviz
-
 stages:
   - build
   - test
   - deploy
 
 cmake-build:
+  image: ubuntu:bionic
   stage: build
   script:
+  - apt update && apt install -y gcc cmake build-essential cmake git-core lcov ggcov libboost-all-dev
   - mkdir build && cd build
   - cmake ..
   - make
@@ -19,8 +16,10 @@ cmake-build:
     - bin/*
 
 doxygen-generate:
+  image: alpine:latest
   stage: build
   script:
+  - apk add --no-cache doxygen graphviz
   - doxygen
   artifacts:
     paths:
@@ -29,16 +28,15 @@ doxygen-generate:
     - master
 
 gtest-test:
+  image: ubuntu:bionic
   stage: test
   dependencies:
     - cmake-build
   script:
   - ./bin/computing-fundamentals-cpp-unittests
-  # artifacts:
-  #   paths:
-  #   - docs/html/*
 
 pages:
+  image: alpine:latest
   stage: deploy
   dependencies:
     - doxygen-generate
