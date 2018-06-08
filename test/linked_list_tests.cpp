@@ -39,16 +39,14 @@ TEST_F(LinkedListTest, IsInitiallyEmpty) {
 }
 
 TEST_F(LinkedListTest, AddsToTail) {
-  auto ll = LinkedList<int>();
+  auto ll = GetSequentialList(TEST_SIZE);
+  EXPECT_EQ(TEST_SIZE, ll->size());
 
   for (int i = 0; i < TEST_SIZE; i++) {
-    ll.Add(i);
+    EXPECT_EQ(i, ll->Get(i));
   }
-  EXPECT_EQ(TEST_SIZE, ll.size());
 
-  for (int i = 0; i < TEST_SIZE; i++) {
-    EXPECT_EQ(i, ll.Get(i));
-  }
+  delete ll;
 }
 
 TEST_F(LinkedListTest, AddsAtFront) {
@@ -76,6 +74,26 @@ TEST_F(LinkedListTest, AddsAtMiddle) {
   for (int i = 0; i < 6; i++) {
     EXPECT_EQ(i, ll.Get(i));
   }
+}
+
+TEST_F(LinkedListTest, FindsIndex) {
+  auto ll = GetSequentialList(TEST_SIZE);
+  EXPECT_EQ(50, ll->IndexOf(50));
+  EXPECT_EQ(0, ll->IndexOf(0));
+  EXPECT_EQ(99, ll->IndexOf(99));
+  EXPECT_EQ(-1, ll->IndexOf(100));
+
+  EXPECT_FALSE(ll->Contains(-1));
+  EXPECT_FALSE(ll->Contains(100));
+
+  ll = new LinkedList<int>();
+  ll->Add(5);
+  ll->Add(1);
+  ll->Add(3);
+  ll->Add(5);
+  ll->Add(2);
+  EXPECT_EQ(0, ll->IndexOf(5));
+  EXPECT_EQ(3, ll->LastIndexOf(5));
 }
 
 TEST_F(LinkedListTest, RemovesElement) {
@@ -109,6 +127,39 @@ TEST_F(LinkedListTest, RemovesElement) {
   for (int i = 0; i < ll.size(); i++) {
     EXPECT_EQ(i, ll.Get(i));
   }
+}
+
+TEST_F(LinkedListTest, RemovesAtIndex) {
+  auto ll = new LinkedList<int>();
+
+  ll = new LinkedList<int>();
+  ll->Add(0);
+  ll->Add(1);
+  ll->Add(2);
+  ll->RemoveAt(0);
+  EXPECT_EQ(2, ll->size());
+  EXPECT_EQ(1, ll->Get(0));
+  EXPECT_EQ(2, ll->Get(1));
+  delete ll;
+
+  ll = new LinkedList<int>();
+  ll->Add(0);
+  ll->Add(1);
+  ll->Add(2);
+  ll->RemoveAt(1);
+  EXPECT_EQ(2, ll->size());
+  EXPECT_EQ(0, ll->Get(0));
+  EXPECT_EQ(2, ll->Get(1));
+  delete ll;
+
+  ll = new LinkedList<int>();
+  ll->Add(0);
+  ll->Add(1);
+  ll->Add(2);
+  ll->RemoveAt(2);
+  EXPECT_EQ(2, ll->size());
+  EXPECT_EQ(0, ll->Get(0));
+  EXPECT_EQ(1, ll->Get(1));
 }
 
 TEST_F(LinkedListTest, ThrowsExpectedExecptions) {

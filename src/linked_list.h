@@ -15,7 +15,6 @@ class LinkedList {
   int size_;
   void RangeCheck(int index);
   void RangeCheckForAdd(int index);
-  void DeleteRecursive(ListNode<T> *node);
 
  public:
   LinkedList<T>();
@@ -30,7 +29,7 @@ class LinkedList {
   bool Add(int index, T element);
   void Clear();
   bool Remove(T element);
-  bool RemoveAt(int index, T element);
+  bool RemoveAt(int index);
   T Set(int index, T element);
 };
 
@@ -78,11 +77,24 @@ T LinkedList<T>::Get(int index) {
 
 template <class T>
 bool LinkedList<T>::Contains(T element) {
-  return true;
+  return this->IndexOf(element) >= 0;
 };
 
 template <class T>
 int LinkedList<T>::IndexOf(T element) {
+  if (!this->head_) {
+    return -1;
+  } else {
+    auto current = this->head_;
+    int index = 0;
+    while (current) {
+      if (current->value() == element) {
+        return index;
+      }
+      current = current->next();
+      index++;
+    }
+  }
   return -1;
 };
 
@@ -93,7 +105,23 @@ bool LinkedList<T>::IsEmpty() {
 
 template <class T>
 int LinkedList<T>::LastIndexOf(T element) {
-  return -1;
+  if (!this->head_) {
+    return -1;
+  }
+
+  int lastIndex = -1;
+  int index = 0;
+
+  auto current = this->head_;
+  while (current) {
+    if (current->value() == element) {
+      lastIndex = index;
+    }
+    current = current->next();
+    index++;
+  }
+
+  return lastIndex;
 };
 
 template <class T>
@@ -137,7 +165,7 @@ void LinkedList<T>::Clear() {
 }
 
 template <class T>
-bool LinkedList<T>::Remove(T element) {
+bool LinkedList<T>::Remove(T element) {  
   if (this->head_->value() == element) {
     this->head_->setNext(this->head_->next());
     this->size_--;
@@ -159,8 +187,21 @@ bool LinkedList<T>::Remove(T element) {
 }
 
 template <class T>
-bool LinkedList<T>::RemoveAt(int index, T element) {
-  return false;
+bool LinkedList<T>::RemoveAt(int index) {
+  this->RangeCheck(index);
+  int beforeSize = this->size_;
+  if (index == 0) {
+    this->head_ = this->head_->next();
+    this->size_--;
+  } else {
+    auto current = this->head_;
+    for (int i = 0; i < index - 1; i++) {
+      current = current->next();
+    }
+    current->setNext(current->next()->next());
+    this->size_--;
+  }
+  return this->size_ = beforeSize - 1;
 }
 
 #endif  // COMPUTING_FUNDAMENTALS_LINKED_LIST_H
