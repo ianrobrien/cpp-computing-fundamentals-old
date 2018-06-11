@@ -8,33 +8,34 @@
 #include <stdexcept>
 #include "list_node.h"
 
+namespace iro {
 template <class T>
-class LinkedList {
+class linked_list {
  private:
-  ListNode<T> *head_;
+  list_node<T> *head_;
   int size_;
-  void RangeCheck(int index);
-  void RangeCheckForAdd(int index);
+  void range_check(int index);
+  void range_check_for_add(int index);
 
  public:
-  LinkedList<T>();
-  ~LinkedList<T>();
+  linked_list<T>();
+  ~linked_list<T>();
   int size() const;
-  bool Contains(T element);
-  T Get(int index);
-  int IndexOf(T element);
-  bool IsEmpty();
-  int LastIndexOf(T element);
-  bool Add(T element);
-  bool Add(int index, T element);
-  void Clear();
-  bool Remove(T element);
-  bool RemoveAt(int index);
+  bool contains(T element);
+  T get(int index);
+  int index_of(T element);
+  bool empty();
+  int last_index_of(T element);
+  bool add(T element);
+  bool add(int index, T element);
+  void clear();
+  bool remove(T element);
+  bool remove_at(int index);
   T Set(int index, T element);
 };
 
 template <class T>
-void LinkedList<T>::RangeCheck(int index) {
+void linked_list<T>::range_check(int index) {
   if (index < 0 || index >= this->size_) {
     throw std::invalid_argument("Index: " + std::to_string(index) +
                                 ", Size: " + std::to_string(this->size_));
@@ -42,7 +43,7 @@ void LinkedList<T>::RangeCheck(int index) {
 }
 
 template <class T>
-void LinkedList<T>::RangeCheckForAdd(int index) {
+void linked_list<T>::range_check_for_add(int index) {
   if (index < 0 || index > this->size_) {
     throw std::invalid_argument("Index: " + std::to_string(index) +
                                 ", Size: " + std::to_string(this->size_));
@@ -50,25 +51,25 @@ void LinkedList<T>::RangeCheckForAdd(int index) {
 }
 
 template <class T>
-LinkedList<T>::LinkedList() {
+linked_list<T>::linked_list() {
   this->size_ = 0;
   this->head_ = nullptr;
 }
 
 template <class T>
-LinkedList<T>::~LinkedList() {
-  this->Clear();
+linked_list<T>::~linked_list() {
+  this->clear();
 }
 
 template <class T>
-int LinkedList<T>::size() const {
+int linked_list<T>::size() const {
   return this->size_;
 }
 
 template <class T>
-T LinkedList<T>::Get(int index) {
-  this->RangeCheck(index);
-  ListNode<T> *node = this->head_;
+T linked_list<T>::get(int index) {
+  this->range_check(index);
+  list_node<T> *node = this->head_;
   for (int i = 0; i < index; i++) {
     node = node->next();
   }
@@ -76,12 +77,12 @@ T LinkedList<T>::Get(int index) {
 }
 
 template <class T>
-bool LinkedList<T>::Contains(T element) {
-  return this->IndexOf(element) >= 0;
+bool linked_list<T>::contains(T element) {
+  return this->index_of(element) >= 0;
 };
 
 template <class T>
-int LinkedList<T>::IndexOf(T element) {
+int linked_list<T>::index_of(T element) {
   if (!this->head_) {
     return -1;
   } else {
@@ -99,12 +100,12 @@ int LinkedList<T>::IndexOf(T element) {
 };
 
 template <class T>
-bool LinkedList<T>::IsEmpty() {
+bool linked_list<T>::empty() {
   return this->size_ == 0;
 }
 
 template <class T>
-int LinkedList<T>::LastIndexOf(T element) {
+int linked_list<T>::last_index_of(T element) {
   if (!this->head_) {
     return -1;
   }
@@ -125,15 +126,15 @@ int LinkedList<T>::LastIndexOf(T element) {
 };
 
 template <class T>
-bool LinkedList<T>::Add(T element) {
-  return this->Add(this->size_, element);
+bool linked_list<T>::add(T element) {
+  return this->add(this->size_, element);
 }
 
 template <class T>
-bool LinkedList<T>::Add(int index, T element) {
-  this->RangeCheckForAdd(index);
+bool linked_list<T>::add(int index, T element) {
+  this->range_check_for_add(index);
   auto currentSize = this->size_;
-  auto adding = new ListNode<T>(element);
+  auto adding = new list_node<T>(element);
 
   if (index == 0) {
     if (head_) {
@@ -153,7 +154,7 @@ bool LinkedList<T>::Add(int index, T element) {
 }
 
 template <class T>
-void LinkedList<T>::Clear() {
+void linked_list<T>::clear() {
   auto current = this->head_;
   while (current != nullptr) {
     auto next = current->next();
@@ -165,7 +166,7 @@ void LinkedList<T>::Clear() {
 }
 
 template <class T>
-bool LinkedList<T>::Remove(T element) {  
+bool linked_list<T>::remove(T element) {
   if (this->head_->value() == element) {
     this->head_->setNext(this->head_->next());
     this->size_--;
@@ -187,8 +188,8 @@ bool LinkedList<T>::Remove(T element) {
 }
 
 template <class T>
-bool LinkedList<T>::RemoveAt(int index) {
-  this->RangeCheck(index);
+bool linked_list<T>::remove_at(int index) {
+  this->range_check(index);
   int beforeSize = this->size_;
   if (index == 0) {
     this->head_ = this->head_->next();
@@ -203,5 +204,6 @@ bool LinkedList<T>::RemoveAt(int index) {
   }
   return this->size_ = beforeSize - 1;
 }
+}  // namespace iro
 
 #endif  // COMPUTING_FUNDAMENTALS_LINKED_LIST_H
