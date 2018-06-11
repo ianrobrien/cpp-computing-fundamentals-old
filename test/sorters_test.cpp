@@ -1,5 +1,5 @@
 //
-// Created by ianrobrien on 2/28/17.
+// Created by ianrobrien on 6/11/17.
 //
 
 #include "src/sorters.h"
@@ -13,7 +13,7 @@ class SortersTest : public ::testing::Test {
 
   int TEST_SIZE = 1000;
 
-  int* GetSequentialList(int size) {
+  int* get_sequential_list(int size) {
     int* values = new int[size];
     for (int i = 0; i < size; i++) {
       values[i] = i;
@@ -21,10 +21,10 @@ class SortersTest : public ::testing::Test {
     return values;
   }
 
-  int* GetRandomizedList(int size) {
-    auto unsortedList = GetSequentialList(size);
+  int* get_randomized_list(int size) {
+    auto unsortedList = get_sequential_list(size);
     for (int i = 0; i < size; i++) {
-      int tempIndex = GetRandomNumber(TEST_SIZE - 1);
+      int tempIndex = get_random_number(TEST_SIZE - 1);
       int tempValue = unsortedList[i];
       unsortedList[i] = unsortedList[tempIndex];
       unsortedList[tempIndex] = tempValue;
@@ -32,14 +32,14 @@ class SortersTest : public ::testing::Test {
     return unsortedList;
   }
 
-  int GetRandomNumber(int range) {
+  int get_random_number(int range) {
     std::mt19937 rng;
     rng.seed(std::random_device()());
     std::uniform_int_distribution<std::mt19937::result_type> dist6(0, range);
     return dist6(rng);
   }
 
-  bool SequenceCorrect(int sequence[], int size) {
+  bool sequence_correct(int sequence[], int size) {
     for (int i = 0; i < size; i++) {
       if (i != sequence[i]) {
         return false;
@@ -52,14 +52,14 @@ class SortersTest : public ::testing::Test {
 };
 
 TEST_F(SortersTest, SequentialList) {
-  auto sequence = GetSequentialList(TEST_SIZE);
-  EXPECT_TRUE(SequenceCorrect(sequence, TEST_SIZE));
+  auto sequence = get_sequential_list(TEST_SIZE);
+  EXPECT_TRUE(sequence_correct(sequence, TEST_SIZE));
   delete[] sequence;
 }
 
 TEST_F(SortersTest, SelectionSort) {
-  auto random = GetRandomizedList(TEST_SIZE);
-  iro::algorithms::Sorters<int>::SelectionSort(random, TEST_SIZE);
+  auto random = get_randomized_list(TEST_SIZE);
+  iro::algorithms::sorters<int>::selection_sort(random, TEST_SIZE);
 
   for (int i = 0; i < TEST_SIZE; i++) {
     EXPECT_EQ(i++, random[i]);
@@ -69,11 +69,11 @@ TEST_F(SortersTest, SelectionSort) {
 }
 
 TEST_F(SortersTest, BubbleSort) {
-  auto random = GetRandomizedList(TEST_SIZE);
-  iro::algorithms::Sorters<int>::BubbleSort(random, TEST_SIZE);
+  auto random = get_randomized_list(TEST_SIZE);
+  iro::algorithms::sorters<int>::bubble_sort(random, TEST_SIZE);
 
   for (int i = 0; i < TEST_SIZE; i++) {
-    EXPECT_EQ(i, random[i]);    
+    EXPECT_EQ(i, random[i]);
   }
 
   delete[] random;
