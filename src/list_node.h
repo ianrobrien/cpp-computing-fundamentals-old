@@ -5,38 +5,40 @@
 #ifndef COMPUTING_FUNDAMENTALS_LIST_NODE_H
 #define COMPUTING_FUNDAMENTALS_LIST_NODE_H
 
+namespace iro {
 template <class T>
-class ListNode {
+class list_node {
  private:
   T value_;
-  ListNode<T> *next_;
+  list_node<T> *next_;
 
  public:
-  ListNode<T>(T value);
-  ListNode<T> *next();
-  void setNext(ListNode<T> *next);
+  list_node<T>(T value);
+  list_node<T> *next();
+  void setNext(list_node<T> *next);
   T value();
 };
 
 template <class T>
-ListNode<T>::ListNode(T value) {
+list_node<T>::list_node(T value) {
   this->value_ = value;
   this->next_ = nullptr;
 }
 
 template <class T>
-void ListNode<T>::setNext(ListNode<T> *next) {
+void list_node<T>::setNext(list_node<T> *next) {
   this->next_ = next;
 }
 
 template <class T>
-ListNode<T> *ListNode<T>::next() {
+list_node<T> *list_node<T>::next() {
   return this->next_;
 }
 
 template <class T>
-T ListNode<T>::value() {
+T list_node<T>::value() {
   return this->value_;
 }
+}  // namespace iro
 
 #endif  // COMPUTING_FUNDAMENTALS_LIST_NODE_H
