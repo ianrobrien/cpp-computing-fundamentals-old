@@ -24,7 +24,7 @@ class SortersTest : public ::testing::Test {
   int* GetRandomizedList(int size) {
     auto unsortedList = GetSequentialList(size);
     for (int i = 0; i < size; i++) {
-      int tempIndex = getRandomNumber(TEST_SIZE - 1);
+      int tempIndex = GetRandomNumber(TEST_SIZE - 1);
       int tempValue = unsortedList[i];
       unsortedList[i] = unsortedList[tempIndex];
       unsortedList[tempIndex] = tempValue;
@@ -32,14 +32,14 @@ class SortersTest : public ::testing::Test {
     return unsortedList;
   }
 
-  int getRandomNumber(int range) {
+  int GetRandomNumber(int range) {
     std::mt19937 rng;
     rng.seed(std::random_device()());
     std::uniform_int_distribution<std::mt19937::result_type> dist6(0, range);
     return dist6(rng);
   }
 
-  bool sequenceCorrect(int sequence[], int size) {
+  bool SequenceCorrect(int sequence[], int size) {
     for (int i = 0; i < size; i++) {
       if (i != sequence[i]) {
         return false;
@@ -51,9 +51,9 @@ class SortersTest : public ::testing::Test {
   // virtual void TearDown() {}
 };
 
-TEST_F(SortersTest, SequentialListCorrect) {
+TEST_F(SortersTest, SequentialList) {
   auto sequence = GetSequentialList(TEST_SIZE);
-  EXPECT_TRUE(sequenceCorrect(sequence, TEST_SIZE));
+  EXPECT_TRUE(SequenceCorrect(sequence, TEST_SIZE));
   delete[] sequence;
 }
 
