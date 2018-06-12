@@ -6,7 +6,7 @@ stages:
 cmake-build:
   image: ubuntu:bionic
   stage: build
-  coverage: '/Overall\D+lines.+:\s(\d+[.]\d+)%/'
+  coverage: '/lines.+:\s(\d+[.]\d+)%/'
   script:
   - apt update && apt install -y gcc cmake lcov ggcov build-essential libboost-all-dev git-core
   - mkdir build && cd build
