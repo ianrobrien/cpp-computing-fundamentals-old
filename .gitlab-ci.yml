@@ -8,7 +8,7 @@ cmake-build:
   stage: build
   coverage: '/Overall\D+lines.+:\s(\d+[.]\d+)%/'
   script:
-  - apt update && apt install -y gcc cmake lcov ggcov build-essential #libboost-all-dev git-core
+  - apt update && apt install -y gcc cmake lcov ggcov build-essential libboost-all-dev git-core
   - mkdir build && cd build
   - cmake ..
   - make computing-fundamentals-cpp computing-fundamentals-cpp-coverage
