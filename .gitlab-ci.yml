@@ -6,14 +6,17 @@ stages:
 cmake-build:
   image: ubuntu:bionic
   stage: build
+  coverage: '/Overall\D+lines.+:\s(\d+[.]\d+)%/'
   script:
   - apt update && apt install -y gcc cmake build-essential cmake git-core lcov ggcov libboost-all-dev
   - mkdir build && cd build
   - cmake ..
-  - make
+  - make computing-fundamentals-cpp computing-fundamentals-cpp-coverage
+  - mv coverage/ ..
   artifacts:
     paths:
     - bin/*
+    - coverage/*
 
 doxygen-generate:
   image: alpine:latest
@@ -42,6 +45,7 @@ pages:
     - doxygen-generate
   script:
     - mv docs/html/ public/
+    - mv coverage/ public/coverage/
   artifacts:
     paths:
       - public
