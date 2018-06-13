@@ -8,7 +8,7 @@
 
 using namespace iro;
 
-class linked_listTest : public ::testing::Test {
+class linked_list_test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
 
@@ -25,7 +25,7 @@ class linked_listTest : public ::testing::Test {
   // virtual void TearDown() {}
 };
 
-TEST_F(linked_listTest, DeletesAllNodes) {
+TEST_F(linked_list_test, DeletesAllNodes) {
   auto ll = get_sequential_list(TEST_SIZE);
   delete ll;
 
@@ -34,13 +34,13 @@ TEST_F(linked_listTest, DeletesAllNodes) {
   EXPECT_EQ(0, ll->size());
 }
 
-TEST_F(linked_listTest, IsInitiallyEmpty) {
+TEST_F(linked_list_test, IsInitiallyEmpty) {
   auto ll = linked_list<int>();
   EXPECT_EQ(0, ll.size());
   EXPECT_TRUE(ll.empty());
 }
 
-TEST_F(linked_listTest, addsToTail) {
+TEST_F(linked_list_test, addsToTail) {
   auto ll = get_sequential_list(TEST_SIZE);
   EXPECT_EQ(TEST_SIZE, ll->size());
 
@@ -51,7 +51,7 @@ TEST_F(linked_listTest, addsToTail) {
   delete ll;
 }
 
-TEST_F(linked_listTest, addsAtFront) {
+TEST_F(linked_list_test, addsAtFront) {
   auto TEST_SIZE = 10;
   auto ll = linked_list<int>();
   for (int i = TEST_SIZE - 1; i >= 0; i--) {
@@ -64,7 +64,7 @@ TEST_F(linked_listTest, addsAtFront) {
   }
 }
 
-TEST_F(linked_listTest, addsAtMiddle) {
+TEST_F(linked_list_test, addsAtMiddle) {
   auto TEST_SIZE = 10;
   auto ll = linked_list<int>();
   ll.add(0);
@@ -78,7 +78,7 @@ TEST_F(linked_listTest, addsAtMiddle) {
   }
 }
 
-TEST_F(linked_listTest, FindsIndex) {
+TEST_F(linked_list_test, FindsIndex) {
   auto ll = get_sequential_list(TEST_SIZE);
   EXPECT_EQ(50, ll->index_of(50));
   EXPECT_EQ(0, ll->index_of(0));
@@ -98,7 +98,7 @@ TEST_F(linked_listTest, FindsIndex) {
   EXPECT_EQ(3, ll->last_index_of(5));
 }
 
-TEST_F(linked_listTest, removesElement) {
+TEST_F(linked_list_test, removesElement) {
   auto TEST_SIZE = 10;
   auto ll = linked_list<int>();
   // remove from Front
@@ -131,7 +131,7 @@ TEST_F(linked_listTest, removesElement) {
   }
 }
 
-TEST_F(linked_listTest, removesAtIndex) {
+TEST_F(linked_list_test, removesAtIndex) {
   auto ll = new linked_list<int>();
 
   ll = new linked_list<int>();
@@ -164,7 +164,7 @@ TEST_F(linked_listTest, removesAtIndex) {
   EXPECT_EQ(1, ll->get(1));
 }
 
-TEST_F(linked_listTest, ThrowsExpectedExecptions) {
+TEST_F(linked_list_test, ThrowsExpectedExecptions) {
   auto ll = linked_list<int>();
   try {
     ll.add(10, 10);

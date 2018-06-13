@@ -2,74 +2,165 @@
 // Created by ianrobrien on 6/11/17.
 //
 
-#ifndef SORTERS_H
-#define SORTERS_H
+#include "src/array_utils.h"
+
+#ifndef COMPUTING_FUNDAMENTALS_CPP_SORTERS_H
+#define COMPUTING_FUNDAMENTALS_CPP_SORTERS_H
+
+using namespace iro::utils;
 
 namespace iro {
 namespace algorithms {
+
+/**
+ * @brief Implementation of various sorting algorithms
+ */
 template <class T>
 class sorters {
+ private:
+  static void merge_sort_sort(T values[], int left, int right);
+  static void merge_sort_merge(T values[], int left, int middle, int right);
+
  public:
-  static void InsertionSort(T values[], int size);
+  /**
+   * @brief In-place insertion sort
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
+  static void insertion_sort(T values[], int size);
+  /**
+   * @brief In-place bubble sort
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
   static void bubble_sort(T values[], int size);
-  static void ExchangeSort(T values[], int size);
+  /**
+   * @brief In-place selection sort
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
   static void selection_sort(T values[], int size);
-  static void ShellSort(T values[], int size);
-  static void QuickSort(T values[], int size);
-  static void MergeSort(T values[], int size);
+  /**
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
+  static void shell_sort(T values[], int size);
+  /**
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
+  static void quick_sort(T values[], int size);
+  /**
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
+  static void merge_sort(T values[], int size);
+  /**
+   * @param values[] an array of type T to sort
+   * @param size The size oof the array
+   */
+  static void heap_sort(T values[], int size);
 };
 
 template <class T>
-void sorters<T>::InsertionSort(T values[], int size) {}
+void sorters<T>::insertion_sort(T values[], int size) {
+  int i = 1;
+  while (i < size) {
+    int j = i;
+    while (j > 0 && values[j - 1] > values[j]) {
+      array_utils<T>::swap(values, j, j - 1);
+      j--;
+    }
+    i++;
+  }
+}
 
 template <class T>
 void sorters<T>::bubble_sort(T values[], int size) {
-  for (int i = 0; i < size; i++) {
-    bool swapped = false;
+  bool swapped;
+  int i = 0;
+  do {
+    swapped = false;
     for (int j = 1; j < size - i; j++) {
       if (values[j - 1] > values[j]) {
-        int temp = values[j - 1];
-        values[j - 1] = values[j];
-        values[j] = temp;
+        array_utils<T>::swap(values, j, j - 1);
         swapped = true;
       }
     }
-    if (!swapped) {
-      return;
-    }
-  }
+    i++;
+  } while (swapped);
 }
-
-template <class T>
-void sorters<T>::ExchangeSort(T values[], int size) {}
 
 template <class T>
 void sorters<T>::selection_sort(T values[], int size) {
-  auto result = new T[size]();
   for (int i = 0; i < size; i++) {
-    // Get smallest element
-    int smallestIndex = i;
+    int index_smallest = i;
     for (int j = i; j < size; j++) {
-      if (values[j] <= values[smallestIndex]) {
-        smallestIndex = j;
+      if (values[j] <= values[index_smallest]) {
+        index_smallest = j;
       }
     }
-    // Swap the next element with the smallest element
-    auto temp = values[i];
-    auto smallest = values[smallestIndex];
-    values[i] = values[smallestIndex];
-    values[smallestIndex] = temp;
+    array_utils<T>::swap(values, i, index_smallest);
   }
 }
 
 template <class T>
-void sorters<T>::ShellSort(T values[], int size) {}
+void sorters<T>::shell_sort(T values[], int size) {}
 
 template <class T>
-void sorters<T>::QuickSort(T values[], int size) {}
+void sorters<T>::quick_sort(T values[], int size) {}
 
 template <class T>
-void sorters<T>::MergeSort(T values[], int size) {}
+void sorters<T>::merge_sort(T values[], int size) {
+  merge_sort_sort(values, 0, size - 1);
+}
+
+template <class T>
+void sorters<T>::merge_sort_sort(T values[], int start, int end) {
+  if (start < end) {
+    int middle = (start + end) / 2;
+    merge_sort_sort(values, start, middle);
+    merge_sort_sort(values, middle + 1, end);
+    merge_sort_merge(values, start, middle, end);
+  }
+}
+
+template <class T>
+void sorters<T>::merge_sort_merge(T values[], int start, int middle, int end) {
+  int i = start;
+  int j = middle + 1;
+  int k = 0;
+  int temp[end - start + 1];
+
+  while (i <= middle && j <= end) {
+    if (values[i] <= values[j]) {
+      temp[k] = values[i];
+      i++;
+    } else {
+      temp[k] = values[j];
+      j++;
+    }
+    k++;
+  }
+
+  while (i <= middle) {
+    temp[k] = values[i];
+    i++;
+    k++;
+  }
+  while (j <= end) {
+    temp[k] = values[j];
+    j++;
+    k++;
+  }
+
+  for (i = start; i <= end; i++) {
+    values[i] = temp[i - start];
+  }
+}
+
+template <class T>
+void sorters<T>::heap_sort(T values[], int size) {}
 }  // namespace algorithms
 }  // namespace iro
-#endif  // SORTERS_H
+#endif  // COMPUTING_FUNDAMENTALS_CPP_SORTERS_H
