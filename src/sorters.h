@@ -127,35 +127,35 @@ void sorters<T>::merge_sort_sort(T values[], int start, int end) {
 
 template <class T>
 void sorters<T>::merge_sort_merge(T values[], int start, int middle, int end) {
-  auto left = array_utils<T>::copy(values, start, middle);
-  auto right = array_utils<T>::copy(values, middle + 1, end);
+  int i = start;
+  int j = middle + 1;
+  int k = 0;
+  int temp[end - start + 1];
 
-  int number_left = middle - start + 1;
-  int number_right = end - middle;
-
-  int i = 0;
-  int j = 0;
-  int k = start;
-  while (i < number_left && j < number_right) {
-    if (left[i] <= right[j]) {
-      values[k] = left[i];
+  while (i <= middle && j <= end) {
+    if (values[i] <= values[j]) {
+      temp[k] = values[i];
       i++;
     } else {
-      values[k] = right[j];
+      temp[k] = values[j];
       j++;
     }
     k++;
   }
 
-  while (i < number_left) {
-    values[k] = left[i];
+  while (i <= middle) {
+    temp[k] = values[i];
     i++;
     k++;
   }
-  while (j < number_right) {
-    values[k] = right[j];
+  while (j <= end) {
+    temp[k] = values[j];
     j++;
     k++;
+  }
+
+  for (i = start; i <= end; i++) {
+    values[i] = temp[i - start];
   }
 }
 
