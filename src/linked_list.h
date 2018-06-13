@@ -6,7 +6,6 @@
 #define COMPUTING_FUNDAMENTALS_LINKED_LIST_H
 
 #include <stdexcept>
-#include "list_node.h"
 
 namespace iro {
 /** @brief A node in a list collection that contains an element of type T
@@ -15,7 +14,12 @@ namespace iro {
 template <class T>
 class linked_list {
  private:
-  list_node<T> *head_;
+  struct list_node {
+    list_node(T element);
+    T value;
+    list_node *next = nullptr;
+  };
+  list_node *head_;
   int size_;
   void range_check(int index);
   void range_check_for_add(int index);
@@ -115,6 +119,12 @@ class linked_list {
 };
 
 template <class T>
+linked_list<T>::list_node::list_node(T element) {
+  this->next = nullptr;
+  this->value = element;
+}
+
+template <class T>
 void linked_list<T>::range_check(int index) {
   if (index < 0 || index >= this->size_) {
     throw std::invalid_argument("Index: " + std::to_string(index) +
@@ -149,11 +159,11 @@ int linked_list<T>::size() const {
 template <class T>
 T linked_list<T>::get(int index) {
   this->range_check(index);
-  list_node<T> *node = this->head_;
+  list_node *node = this->head_;
   for (int i = 0; i < index; i++) {
-    node = node->next();
+    node = node->next;
   }
-  return node->value();
+  return node->value;
 }
 
 template <class T>
@@ -169,10 +179,10 @@ int linked_list<T>::index_of(T element) {
     auto current = this->head_;
     int index = 0;
     while (current) {
-      if (current->value() == element) {
+      if (current->value == element) {
         return index;
       }
-      current = current->next();
+      current = current->next;
       index++;
     }
   }
@@ -195,10 +205,10 @@ int linked_list<T>::last_index_of(T element) {
 
   auto current = this->head_;
   while (current) {
-    if (current->value() == element) {
+    if (current->value == element) {
       lastIndex = index;
     }
-    current = current->next();
+    current = current->next;
     index++;
   }
 
@@ -214,20 +224,20 @@ template <class T>
 bool linked_list<T>::add(int index, T element) {
   this->range_check_for_add(index);
   auto currentSize = this->size_;
-  auto adding = new list_node<T>(element);
+  auto adding = new list_node(element);
 
   if (index == 0) {
     if (head_) {
-      adding->setNext(head_);
+      adding->next = head_;
     }
     this->head_ = adding;
   } else {
     auto next = this->head_;
     for (int i = 0; i < index - 1; i++) {
-      next = next->next();
+      next = next->next;
     }
-    adding->setNext(next->next());
-    next->setNext(adding);
+    adding->next = (next->next);
+    next->next = (adding);
   }
 
   return ++this->size_ == currentSize + 1;
@@ -237,7 +247,7 @@ template <class T>
 void linked_list<T>::clear() {
   auto current = this->head_;
   while (current != nullptr) {
-    auto next = current->next();
+    auto next = current->next;
     delete current;
     current = next;
     this->size_--;
@@ -247,21 +257,21 @@ void linked_list<T>::clear() {
 
 template <class T>
 bool linked_list<T>::remove(T element) {
-  if (this->head_->value() == element) {
-    this->head_->setNext(this->head_->next());
+  if (this->head_->value == element) {
+    this->head_->next = (this->head_->next);
     this->size_--;
     return true;
   } else {
-    auto current = this->head_->next();
+    auto current = this->head_->next;
     auto previous = this->head_;
     while (current) {
-      if (current->value() == element) {
-        previous->setNext(current->next());
+      if (current->value == element) {
+        previous->next = (current->next);
         this->size_--;
         return true;
       }
       previous = current;
-      current = current->next();
+      current = current->next;
     }
   }
   return false;
@@ -272,14 +282,14 @@ bool linked_list<T>::remove_at(int index) {
   this->range_check(index);
   int beforeSize = this->size_;
   if (index == 0) {
-    this->head_ = this->head_->next();
+    this->head_ = this->head_->next;
     this->size_--;
   } else {
     auto current = this->head_;
     for (int i = 0; i < index - 1; i++) {
-      current = current->next();
+      current = current->next;
     }
-    current->setNext(current->next()->next());
+    current->next = (current->next->next);
     this->size_--;
   }
   return this->size_ = beforeSize - 1;
