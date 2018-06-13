@@ -77,18 +77,18 @@ void sorters<T>::insertion_sort(T values[], int size) {
 
 template <class T>
 void sorters<T>::bubble_sort(T values[], int size) {
-  for (int i = 0; i < size; i++) {
-    bool swapped = false;
+  bool swapped;
+  int i = 0;
+  do {
+    swapped = false;
     for (int j = 1; j < size - i; j++) {
       if (values[j - 1] > values[j]) {
         array_utils<T>::swap(values, j, j - 1);
         swapped = true;
       }
     }
-    if (!swapped) {
-      return;
-    }
-  }
+    i++;
+  } while (swapped);
 }
 
 template <class T>

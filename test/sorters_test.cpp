@@ -11,7 +11,7 @@ class SortersTest : public ::testing::Test {
  protected:
   virtual void SetUp() {}
 
-  int TEST_SIZE = 50000;
+  int TEST_SIZE = 25000;
 
   int* get_sequential_list(int size) {
     int* values = new int[size];
