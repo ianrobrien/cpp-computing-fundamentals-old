@@ -4,7 +4,6 @@
 
 #include "gtest/gtest.h"
 #include "src/array_utils.h"
-#include "src/list_node.h"
 
 using namespace iro;
 

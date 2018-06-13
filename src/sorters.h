@@ -157,9 +157,6 @@ void sorters<T>::merge_sort_merge(T values[], int start, int middle, int end) {
     j++;
     k++;
   }
-
-  delete left;
-  delete right;
 }
 
 template <class T>

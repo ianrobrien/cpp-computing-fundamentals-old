@@ -30,6 +30,16 @@ class array_utils {
    * @return a pointer to the copied array
    */
   static T* copy(T values[], int start_index, int end_index);
+  /**
+   * @param source[] the source array
+   * @param source[] the destination array
+   * @param start_index the index of the first element to copy from the source
+   * array
+   * @param end_index the index of the last element to copy from the source
+   * array
+   * @return a pointer to the copied array
+   */
+  static void copy(T source[], T destination[], int start_index, int end_index);
 };
 
 template <class T>
@@ -42,14 +52,19 @@ void array_utils<T>::swap(T values[], int index_a, int index_b) {
 template <class T>
 T* array_utils<T>::copy(T values[], int start_index, int end_index) {
   auto result = new T[end_index - start_index + 1];
-  auto result_index = 0;
+  array_utils<T>::copy(values, result, start_index, end_index);
+  return result;
+}
+
+template <class T>
+void array_utils<T>::copy(T source[], T destination[], int start_index, int end_index) {  
+  auto destination_index = 0;
   for (int i = 0; i <= end_index; i++) {
     if (i >= start_index) {
-      result[result_index] = values[i];
-      result_index++;
+      destination[destination_index] = source[i];
+      destination_index++;
     }
   }
-  return result;
 }
 
 }  // namespace utils
