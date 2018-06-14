@@ -2,20 +2,20 @@
 // Created by ianrobrien on 2/28/17.
 //
 
-#include "src/linked_list.h"
+#include "src/array_list.h"
 #include <string>
 #include "gtest/gtest.h"
 
 using namespace iro::utils;
 
-class linked_list_test : public ::testing::Test {
+class array_list_test : public ::testing::Test {
  protected:
   virtual void SetUp() {}
 
   int TEST_SIZE = 100;
 
-  linked_list<int>* get_sequential_list(int size) {
-    auto ll = new linked_list<int>();
+  array_list<int>* get_sequential_list(int size) {
+    auto ll = new array_list<int>();
     for (int i = 0; i < size; i++) {
       ll->add(i);
     }
@@ -25,7 +25,7 @@ class linked_list_test : public ::testing::Test {
   // virtual void TearDown() {}
 };
 
-TEST_F(linked_list_test, DeletesAllNodes) {
+TEST_F(array_list_test, DeletesAllNodes) {
   auto ll = get_sequential_list(TEST_SIZE);
   delete ll;
 
@@ -34,13 +34,13 @@ TEST_F(linked_list_test, DeletesAllNodes) {
   EXPECT_EQ(0, ll->size());
 }
 
-TEST_F(linked_list_test, IsInitiallyEmpty) {
-  auto ll = linked_list<int>();
+TEST_F(array_list_test, IsInitiallyEmpty) {
+  auto ll = array_list<int>();
   EXPECT_EQ(0, ll.size());
   EXPECT_TRUE(ll.empty());
 }
 
-TEST_F(linked_list_test, addsToTail) {
+TEST_F(array_list_test, addsToTail) {
   auto ll = get_sequential_list(TEST_SIZE);
   EXPECT_EQ(TEST_SIZE, ll->size());
 
@@ -51,9 +51,9 @@ TEST_F(linked_list_test, addsToTail) {
   delete ll;
 }
 
-TEST_F(linked_list_test, addsAtFront) {
+TEST_F(array_list_test, addsAtFront) {
   auto TEST_SIZE = 10;
-  auto ll = linked_list<int>();
+  auto ll = array_list<int>();
   for (int i = TEST_SIZE - 1; i >= 0; i--) {
     ll.add(0, i);
   }
@@ -64,9 +64,9 @@ TEST_F(linked_list_test, addsAtFront) {
   }
 }
 
-TEST_F(linked_list_test, addsAtMiddle) {
+TEST_F(array_list_test, addsAtMiddle) {
   auto TEST_SIZE = 10;
-  auto ll = linked_list<int>();
+  auto ll = array_list<int>();
   ll.add(0);
   ll.add(1);
   ll.add(2);
@@ -78,7 +78,7 @@ TEST_F(linked_list_test, addsAtMiddle) {
   }
 }
 
-TEST_F(linked_list_test, FindsIndex) {
+TEST_F(array_list_test, FindsIndex) {
   auto ll = get_sequential_list(TEST_SIZE);
   EXPECT_EQ(50, ll->index_of(50));
   EXPECT_EQ(0, ll->index_of(0));
@@ -88,7 +88,7 @@ TEST_F(linked_list_test, FindsIndex) {
   EXPECT_FALSE(ll->contains(-1));
   EXPECT_FALSE(ll->contains(100));
 
-  ll = new linked_list<int>();
+  ll = new array_list<int>();
   ll->add(5);
   ll->add(1);
   ll->add(3);
@@ -98,9 +98,9 @@ TEST_F(linked_list_test, FindsIndex) {
   EXPECT_EQ(3, ll->last_index_of(5));
 }
 
-TEST_F(linked_list_test, removesElement) {
+TEST_F(array_list_test, removesElement) {
   auto TEST_SIZE = 10;
-  auto ll = linked_list<int>();
+  auto ll = array_list<int>();
   // remove from Front
   for (int i = 0; i < TEST_SIZE; i++) {
     ll.add(0, i);
@@ -132,10 +132,10 @@ TEST_F(linked_list_test, removesElement) {
   }
 }
 
-TEST_F(linked_list_test, removesAtIndex) {
-  auto ll = new linked_list<int>();
+TEST_F(array_list_test, removesAtIndex) {
+  auto ll = new array_list<int>();
 
-  ll = new linked_list<int>();
+  ll = new array_list<int>();
   ll->add(0);
   ll->add(1);
   ll->add(2);
@@ -145,7 +145,7 @@ TEST_F(linked_list_test, removesAtIndex) {
   EXPECT_EQ(2, ll->get(1));
   delete ll;
 
-  ll = new linked_list<int>();
+  ll = new array_list<int>();
   ll->add(0);
   ll->add(1);
   ll->add(2);
@@ -155,7 +155,7 @@ TEST_F(linked_list_test, removesAtIndex) {
   EXPECT_EQ(2, ll->get(1));
   delete ll;
 
-  ll = new linked_list<int>();
+  ll = new array_list<int>();
   ll->add(0);
   ll->add(1);
   ll->add(2);
@@ -165,8 +165,8 @@ TEST_F(linked_list_test, removesAtIndex) {
   EXPECT_EQ(1, ll->get(1));
 }
 
-TEST_F(linked_list_test, ThrowsExpectedExecptions) {
-  auto ll = linked_list<int>();
+TEST_F(array_list_test, ThrowsExpectedExecptions) {
+  auto ll = array_list<int>();
   try {
     ll.add(10, 10);
   } catch (std::invalid_argument const& err) {

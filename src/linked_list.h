@@ -6,24 +6,15 @@
 #define COMPUTING_FUNDAMENTALS_LINKED_LIST_H
 
 #include <stdexcept>
+#include "src/list.h"
 
 namespace iro {
+namespace utils {
 /** @brief A node in a list collection that contains an element of type T
  *
  * This class provides a node in a LinkedList of type T*/
 template <class T>
-class linked_list {
- private:
-  struct list_node {
-    list_node(T element);
-    T value;
-    list_node *next = nullptr;
-  };
-  list_node *head_;
-  int size_;
-  void range_check(int index);
-  void range_check_for_add(int index);
-
+class linked_list : public list<T> {
  public:
   /**
    * @brief Constructs an instance of %linked_ist
@@ -34,11 +25,6 @@ class linked_list {
    * @details removes all nodes and frees all associated memory
    */
   ~linked_list<T>();
-  /**
-   * @brief The number of nodes in the list
-   * @return The number of nodes in the list
-   */
-  int size() const;
   /**
    * @brief Searches the list to see whether or not it contains the specified
    * element
@@ -57,10 +43,6 @@ class linked_list {
    * @return The element's index if it is in the list, -1 if it is not
    */
   int index_of(T element);
-  /**
-   * @return Whether or not the list has any elements
-   */
-  bool empty();
   /**
    * @brief The index of the specified element furthest from the head
    * @param element The element whose last index is desired
@@ -115,7 +97,17 @@ class linked_list {
    * @param element The element to set at the specified index
    * @return The element that was replaced at the specified index
    */
-  T Set(int index, T element);
+  T set(int index, T element);
+
+ private:
+  struct list_node {
+    list_node(T element);
+    T value;
+    list_node *next = nullptr;
+  };
+  list_node *head_;
+  void range_check(int index);
+  void range_check_for_add(int index);
 };
 
 template <class T>
@@ -152,11 +144,6 @@ linked_list<T>::~linked_list() {
 }
 
 template <class T>
-int linked_list<T>::size() const {
-  return this->size_;
-}
-
-template <class T>
 T linked_list<T>::get(int index) {
   this->range_check(index);
   list_node *node = this->head_;
@@ -188,11 +175,6 @@ int linked_list<T>::index_of(T element) {
   }
   return -1;
 };
-
-template <class T>
-bool linked_list<T>::empty() {
-  return this->size_ == 0;
-}
 
 template <class T>
 int linked_list<T>::last_index_of(T element) {
@@ -250,8 +232,8 @@ void linked_list<T>::clear() {
     auto next = current->next;
     delete current;
     current = next;
-    this->size_--;
   }
+  this->size_ = 0;
   this->head_ = nullptr;
 }
 
@@ -294,6 +276,11 @@ bool linked_list<T>::remove_at(int index) {
   }
   return this->size_ = beforeSize - 1;
 }
+
+template <class T>
+T linked_list<T>::set(int index, T element) {}
+
+}  // namespace utils
 }  // namespace iro
 
 #endif  // COMPUTING_FUNDAMENTALS_LINKED_LIST_H

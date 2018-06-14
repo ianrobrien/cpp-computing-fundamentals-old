@@ -40,6 +40,10 @@ class array_utils {
    * @return a pointer to the copied array
    */
   static void copy(T source[], T destination[], int start_index, int end_index);
+
+  static void shift_right(T source[], int start_index, int end_index);
+
+  static void shift_left(T source[], int start_index, int end_index);
 };
 
 template <class T>
@@ -57,12 +61,31 @@ T* array_utils<T>::copy(T values[], int start_index, int end_index) {
 }
 
 template <class T>
-void array_utils<T>::copy(T source[], T destination[], int start_index, int end_index) {  
+void array_utils<T>::copy(T source[], T destination[], int start_index,
+                          int end_index) {
   auto destination_index = 0;
   for (int i = 0; i <= end_index; i++) {
     if (i >= start_index) {
       destination[destination_index] = source[i];
       destination_index++;
+    }
+  }
+}
+
+template <class T>
+void array_utils<T>::shift_right(T source[], int start_index, int end_index) {
+  if (start_index >= 0 && end_index >= 0) {
+    for (int i = end_index; i >= start_index; i--) {
+      source[i + 1] = source[i];
+    }
+  }
+}
+
+template <class T>
+void array_utils<T>::shift_left(T source[], int start_index, int end_index) {
+  if (start_index >= 0 && end_index >= 0) {
+    for (int i = start_index; i <= end_index; i++) {
+      source[i - 1] = source[i];
     }
   }
 }

@@ -4,6 +4,8 @@ bin/
 build/
 docs/
 coverage/
+.idea/
+cmake-build-debug/
 
 # Vagrant
 .vagrant/
