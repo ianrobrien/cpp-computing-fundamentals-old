@@ -93,6 +93,8 @@ class list {
    */
   virtual T set(int index, T element) = 0;
 
+  virtual T* to_array() = 0;
+
  protected:
   int size_ = 0;
 };
@@ -107,7 +109,7 @@ bool list<T>::empty() {
   return this->size_ == 0;
 }
 
-}  // namespace util
+}  // namespace utils
 }  // namespace iro
 
 #endif  // COMPUTING_FUNDAMENTALS_LINKED_LIST_H

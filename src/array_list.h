@@ -21,6 +21,7 @@ class array_list : public list<T> {
   bool remove(T element);
   bool remove_at(int index);
   T set(int index, T element);
+  T* to_array();
 
  private:
   T* data_;
@@ -123,6 +124,11 @@ T array_list<T>::set(int index, T element) {
   T temp = this->data_[index];
   this->data_[index] = element;
   return temp;
+}
+
+template <class T>
+T* array_list<T>::to_array() {
+  return array_utils<T>::copy(this->data_, 0, this->size_ - 1);
 }
 
 template <class T>
