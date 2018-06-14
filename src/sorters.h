@@ -25,39 +25,39 @@ class sorters {
   /**
    * @brief In-place insertion sort
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void insertion_sort(T values[], int size);
   /**
    * @brief In-place bubble sort
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void bubble_sort(T values[], int size);
   /**
    * @brief In-place selection sort
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void selection_sort(T values[], int size);
   /**
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void shell_sort(T values[], int size);
   /**
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void quick_sort(T values[], int size);
   /**
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void merge_sort(T values[], int size);
   /**
    * @param values[] an array of type T to sort
-   * @param size The size oof the array
+   * @param size The size of the array
    */
   static void heap_sort(T values[], int size);
 };

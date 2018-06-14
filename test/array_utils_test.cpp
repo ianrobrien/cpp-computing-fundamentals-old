@@ -9,7 +9,7 @@ using namespace iro;
 
 TEST(ArrayUtilsTest, Swap) {
   int TEST_SIZE = 100;
-  int* test_array = new int[TEST_SIZE];
+  auto test_array = new int[TEST_SIZE];
   for (int i = 0; i < TEST_SIZE; i++) {
     test_array[i] = i;
   }
@@ -28,7 +28,7 @@ TEST(ArrayUtilsTest, Swap) {
 TEST(ArrayUtilsTest, Copy) {
   int TEST_SIZE = 100;
 
-  int* test_array = new int[TEST_SIZE];
+  auto test_array = new int[TEST_SIZE];
   for (int i = 0; i < TEST_SIZE; i++) {
     test_array[i] = i;
   }

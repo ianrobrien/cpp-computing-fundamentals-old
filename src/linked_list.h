@@ -99,6 +99,8 @@ class linked_list : public list<T> {
    */
   T set(int index, T element);
 
+  T *to_array();
+
  private:
   struct list_node {
     list_node(T element);
@@ -274,11 +276,34 @@ bool linked_list<T>::remove_at(int index) {
     current->next = (current->next->next);
     this->size_--;
   }
-  return this->size_ = beforeSize - 1;
+  return this->size_ == beforeSize - 1;
 }
 
 template <class T>
-T linked_list<T>::set(int index, T element) {}
+T linked_list<T>::set(int index, T element) {
+  range_check(index);
+  auto current = this->head_;
+  for (int i = 0; i < index; i++) {
+    current = current->next;
+  }
+  T previous = current->value;
+  current->value = element;
+  return previous;
+}
+
+template <class T>
+T *linked_list<T>::to_array() {
+  auto result = new T[this->size_];
+  if (this->head_ != nullptr) {
+    int i = 0;
+    auto next = this->head_;
+    while (next != nullptr) {
+      result[i++] = next->value;
+      next = next->next;
+    }
+  }
+  return result;
+}
 
 }  // namespace utils
 }  // namespace iro

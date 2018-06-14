@@ -11,10 +11,10 @@ class SortersTest : public ::testing::Test {
  protected:
   virtual void SetUp() {}
 
-  int TEST_SIZE = 1000;
+  int TEST_SIZE = 256;
 
   int* get_sequential_list(int size) {
-    int* values = new int[size];
+    auto* values = new int[size];
     for (int i = 0; i < size; i++) {
       values[i] = i;
     }
@@ -35,11 +35,12 @@ class SortersTest : public ::testing::Test {
   int get_random_number(int range) {
     std::mt19937 rng;
     rng.seed(std::random_device()());
-    std::uniform_int_distribution<std::mt19937::result_type> dist6(0, range);
-    return dist6(rng);
+    std::uniform_int_distribution<std::mt19937::result_type> dist6(
+        0, static_cast<unsigned long>(range));
+    return static_cast<int>(dist6(rng));
   }
 
-  bool sequence_correct(int sequence[], int size) {
+  bool sequence_correct(const int sequence[], int size) {
     for (int i = 0; i < size; i++) {
       if (i != sequence[i]) {
         return false;
