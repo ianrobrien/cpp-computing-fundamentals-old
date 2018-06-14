@@ -65,7 +65,6 @@ TEST_F(linked_list_test, addsAtFront) {
 }
 
 TEST_F(linked_list_test, addsAtMiddle) {
-  auto TEST_SIZE = 10;
   auto ll = linked_list<int>();
   ll.add(0);
   ll.add(1);
@@ -134,8 +133,6 @@ TEST_F(linked_list_test, removesElement) {
 
 TEST_F(linked_list_test, removesAtIndex) {
   auto ll = new linked_list<int>();
-
-  ll = new linked_list<int>();
   ll->add(0);
   ll->add(1);
   ll->add(2);
@@ -170,7 +167,17 @@ TEST_F(linked_list_test, ThrowsExpectedExecptions) {
   try {
     ll.add(10, 10);
   } catch (std::invalid_argument const& err) {
-    auto test = err.what();
     EXPECT_EQ(err.what(), std::string("Index: 10, Size: 0"));
+  }
+}
+
+TEST_F(linked_list_test, TransformsToArray) {
+  auto ll = linked_list<int>();
+  for (int i = 0; i < TEST_SIZE; i++) {
+    ll.add(i * 2);
+  }
+  auto ll_array = ll.to_array();
+  for (int i = 0; i < ll.size(); i++) {
+    EXPECT_EQ(i * 2, ll_array[i]);
   }
 }

@@ -74,9 +74,9 @@ FUNCTION(SETUP_TARGET_FOR_COVERAGE _targetname _testrunner _outputname)
 	ENDIF() # NOT GENHTML_PATH
 
 	# remove test directory and system headers and sources
-    SET (LCOV_REMOVE ${_outputname}.info 'tests/*' 'test/*' '/usr/*' 'tools/*')
+    SET (LCOV_REMOVE ${_outputname}.info '${MAINFOLDER}/tests/*' '${MAINFOLDER}/test/*' '/usr/*' '${MAINFOLDER}/tools/*')
 	# remove thirdparty software
-    SET (LCOV_REMOVE ${LCOV_REMOVE} 'thirdparty/*')
+    SET (LCOV_REMOVE ${LCOV_REMOVE} '${MAINFOLDER}/thirdparty/*')
 
 	# Setup target
 	ADD_CUSTOM_TARGET(${_targetname}
