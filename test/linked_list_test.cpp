@@ -165,6 +165,16 @@ TEST_F(linked_list_test, removesAtIndex) {
   EXPECT_EQ(1, ll->get(1));
 }
 
+TEST_F(linked_list_test, ReturnsInvalidIndex) {
+  auto ll = new linked_list<int>();
+  ll->add(0);
+  ll->add(1);
+  ll->add(2);
+  EXPECT_EQ(-1, ll->index_of(100));
+  EXPECT_EQ(-1, ll->last_index_of(100));
+  EXPECT_FALSE(ll->remove(100));
+}
+
 TEST_F(linked_list_test, ThrowsExpectedExecptions) {
   auto ll = linked_list<int>();
   try {
