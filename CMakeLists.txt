@@ -1,6 +1,6 @@
 ## Project Properties
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(computing-fundamentals-cpp)
+PROJECT(cpp-computing-fundamentals)
 SET(APPLICATION_NAME "Computing Fundamentals in C++")
 SET(APPLICATION_CODENAME "${PROJECT_NAME}")
 SET(APPLICATION_COPYRIGHT_YEARS "2018")

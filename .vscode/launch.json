@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/computing-fundamentals-cpp-unittests",
+            "program": "${workspaceFolder}/bin/cpp-computing-fundamentals-unittests",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

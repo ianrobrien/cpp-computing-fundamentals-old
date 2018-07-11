@@ -11,7 +11,7 @@ cmake-build:
   - apt update && apt install -y gcc cmake lcov ggcov build-essential libboost-all-dev git-core
   - mkdir build && cd build
   - cmake ..
-  - make computing-fundamentals-cpp computing-fundamentals-cpp-coverage
+  - make cpp-computing-fundamentals cpp-computing-fundamentals-coverage
   - mv coverage/ ..
   artifacts:
     paths:
@@ -36,7 +36,7 @@ gtest-test:
   dependencies:
     - cmake-build
   script:
-  - ./bin/computing-fundamentals-cpp-unittests
+  - ./bin/cpp-computing-fundamentals-unittests
 
 pages:
   image: alpine:latest

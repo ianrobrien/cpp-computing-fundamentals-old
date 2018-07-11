@@ -90,9 +90,6 @@ void max_heap<T>::meld(heap<T>* other) {}
 template <class T>
 void max_heap<T>::update_key() {}
 
-// template<class T>
-// void max_heap<T>::delete_node(heap<T>::node *other) {}
-
 template <class T>
 void max_heap<T>::sift() {}
 
