@@ -8,10 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Build C++ app
-        run: make -C .  # Replace with the actual path to your source code and Makefile
+        run: make -C
